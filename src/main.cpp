@@ -25,7 +25,7 @@ void setup(){
 	pinMode(ONBOARD_LED_PIN, OUTPUT);
 	pinMode(ONCHIP_LED_PIN, OUTPUT);
 	
-	digitalWrite(ONBOARD_LED_PIN, HIGH);
+	digitalWrite(ONBOARD_LED_PIN, LOW);
 	digitalWrite(ONCHIP_LED_PIN, HIGH);
 	WiFi.begin(SSID);
 	Serial.print("Connecting");
@@ -60,13 +60,13 @@ void handleIndex(){
 }
 
 void handleOn(){
-	digitalWrite(ONBOARD_LED_PIN, LOW);
-	server.send(200, "text/html", "OK");
+	digitalWrite(ONBOARD_LED_PIN, HIGH);
+	server.send(200, "text/html", "ON");
 }
 
 void handleOff(){
-	digitalWrite(ONBOARD_LED_PIN, HIGH);
-	server.send(200, "text/html", "OK");
+	digitalWrite(ONBOARD_LED_PIN, LOW);
+	server.send(200, "text/html", "OFF");
 }
 
 void handleInfo(){
